@@ -1,0 +1,16 @@
+{
+  "name": "newsify",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Newsletter + contact API on Cloudflare Workers (Rust, D1, Resend)",
+  "scripts": {
+    "dev": "wrangler dev --local --var EMAIL_MODE:log --var PUBLIC_BASE_URL:http://localhost:8787 --var SITE_URL:http://localhost:5173 --var ALLOWED_ORIGINS:http://localhost:5173",
+    "db:migrate:local": "wrangler d1 migrations apply newsify --local",
+    "db:migrate:remote": "wrangler d1 migrations apply newsify --remote",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "license": "MIT"
+}

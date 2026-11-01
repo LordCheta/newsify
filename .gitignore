@@ -1,1 +1,8 @@
 /target
+/build
+/node_modules
+/.wrangler
+.dev.vars
+.env
+*.log
+/crates/*/build

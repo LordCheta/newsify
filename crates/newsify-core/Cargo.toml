@@ -1,0 +1,19 @@
+[package]
+name = "newsify-core"
+description = "Platform-independent newsletter and contact-form logic for newsify"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+hmac = "0.12"
+hex = "0.4"
+thiserror = "2"
+
+[dev-dependencies]
+futures = "0.3"

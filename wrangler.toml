@@ -1,0 +1,41 @@
+name = "newsify"
+main = "crates/newsify-worker/build/worker/shim.mjs"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+[build]
+command = "cargo install -q worker-build --version ^0.8 && worker-build --release crates/newsify-worker"
+
+# Non-secret settings. Edit these for your site; see README.md.
+[vars]
+BRAND_NAME = "Cheta BC"
+# Public URL of THIS worker (used in links inside e-mails).
+PUBLIC_BASE_URL = "https://newsify.example.workers.dev"
+# The website that embeds the forms; visitors are redirected here after confirming.
+SITE_URL = "https://example.com"
+# Comma-separated browser origins allowed to call /api/*.
+ALLOWED_ORIGINS = "https://example.com"
+# Must be on a domain verified in Resend.
+FROM_EMAIL = "Cheta BC <newsletter@example.com>"
+# Where contact-form messages are delivered.
+CONTACT_TO = "hello@example.com"
+# `resend` sends real e-mail. `log` prints e-mails to the Worker log (local dev).
+EMAIL_MODE = "resend"
+BATCH_SIZE = "50"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "newsify"
+# Replace with the id printed by `wrangler d1 create newsify`.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+# Sends one batch of queued newsletter e-mails every minute.
+[triggers]
+crons = ["* * * * *"]
+
+# Secrets (set with `wrangler secret put`, never commit them):
+#   SIGNING_SECRET   random string, 32+ chars; signs unsubscribe links, keys IP hashes
+#   RESEND_API_KEY   Resend API key (not needed when EMAIL_MODE = "log")
+#   ADMIN_TOKEN      bearer token for /admin/*
+#   TURNSTILE_SECRET optional; enables Cloudflare Turnstile on the public forms

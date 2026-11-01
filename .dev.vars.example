@@ -1,0 +1,5 @@
+# Copy to .dev.vars for `wrangler dev`. .dev.vars is git-ignored.
+SIGNING_SECRET=local-dev-signing-secret-change-me-0123456789
+ADMIN_TOKEN=local-dev-admin-token
+# RESEND_API_KEY=re_...   (only needed with EMAIL_MODE=resend)
+# TURNSTILE_SECRET=       (optional)

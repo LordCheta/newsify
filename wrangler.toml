@@ -8,17 +8,18 @@ command = "cargo install -q worker-build --version ^0.8 && worker-build --releas
 
 # Non-secret settings. Edit these for your site; see README.md.
 [vars]
-BRAND_NAME = "Cheta BC"
+BRAND_NAME = "Chxta Inc"
 # Public URL of THIS worker (used in links inside e-mails).
 PUBLIC_BASE_URL = "https://newsify.example.workers.dev"
 # The website that embeds the forms; visitors are redirected here after confirming.
 SITE_URL = "https://example.com"
 # Comma-separated browser origins allowed to call /api/*.
 ALLOWED_ORIGINS = "https://example.com"
-# Must be on a domain verified in Resend.
-FROM_EMAIL = "Cheta BC <newsletter@example.com>"
-# Where contact-form messages are delivered.
-CONTACT_TO = "hello@example.com"
+# PLACEHOLDER: replace before deploying. Must be an address on a domain verified in Resend;
+# the sending domain is not decided yet, so mail will not send until this is set.
+FROM_EMAIL = "Chxta Inc <REPLACE_ME@your-sending-domain.example>"
+# Where contact-form messages are delivered. Temporary inbox; may move to a Chxta-domain address.
+CONTACT_TO = "chetabcltd@gmail.com"
 # `resend` sends real e-mail. `log` prints e-mails to the Worker log (local dev).
 EMAIL_MODE = "resend"
 BATCH_SIZE = "50"

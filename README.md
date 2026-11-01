@@ -92,6 +92,7 @@ npm run db:migrate:remote
 
 # 2. Settings: edit [vars] in wrangler.toml (BRAND_NAME, PUBLIC_BASE_URL, SITE_URL,
 #    ALLOWED_ORIGINS, FROM_EMAIL, CONTACT_TO). EMAIL_MODE stays "resend".
+#    FROM_EMAIL ships as a REPLACE_ME placeholder: set a Resend-verified sender first.
 
 # 3. Secrets
 openssl rand -hex 32 | npx wrangler secret put SIGNING_SECRET

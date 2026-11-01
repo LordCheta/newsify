@@ -3,9 +3,9 @@
 
 #[derive(Debug, Clone)]
 pub struct Config {
-    /// Brand shown in e-mail copy, e.g. "Cheta BC".
+    /// Brand shown in e-mail copy, e.g. "Chxta Inc".
     pub brand_name: String,
-    /// `From` header, e.g. `Cheta BC <news@example.com>`. Must be a sender
+    /// `From` header, e.g. `Chxta Inc <news@example.com>`. Must be a sender
     /// verified with the e-mail provider.
     pub from: String,
     /// Public base URL of this API (no trailing slash). Used to build the
